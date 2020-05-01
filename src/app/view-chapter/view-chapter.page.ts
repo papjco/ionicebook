@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService, Message } from '../services/data.service';
+import { DataService, chapter } from '../services/data.service';
 
 @Component({
   selector: 'app-view-chapter',
@@ -8,7 +8,7 @@ import { DataService, Message } from '../services/data.service';
   styleUrls: ['./view-chapter.page.scss'],
 })
 export class ViewChapterPage implements OnInit {
-  public message: Message;
+  public chapter: chapter;
 
   constructor(
     private data: DataService,
@@ -17,7 +17,7 @@ export class ViewChapterPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.message = this.data.getMessageById(parseInt(id, 10));
+    this.chapter = this.data.getchapterById(parseInt(id, 10));
   }
 
   getBackButtonText() {
@@ -27,10 +27,10 @@ export class ViewChapterPage implements OnInit {
   }
 
   shouldNavigateBack() {
-    return this.message.id > 1;
+    return this.chapter.id > 1;
   }
   
   shouldNavigateFwd() {
-    return this.message.id < this.data.getMessages().length;
+    return this.chapter.id < this.data.getchapters().length;
   }
 }

@@ -11,8 +11,8 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'message/:id',
-    loadChildren: () => import('./view-chapter/view-chapter.module').then( m => m.ViewMessagePageModule)
+    path: 'chapter/:id',
+    loadChildren: () => import('./view-chapter/view-chapter.module').then( m => m.ViewchapterPageModule)
   },
   {
     path: '',

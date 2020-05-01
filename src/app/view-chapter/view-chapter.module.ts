@@ -5,15 +5,15 @@ import { ViewChapterPage } from './view-chapter.page';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ViewMessagePageRoutingModule } from './view-chapter-routing.module';
+import { ViewchapterPageRoutingModule } from './view-chapter-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewMessagePageRoutingModule
+    ViewchapterPageRoutingModule
   ],
   declarations: [ViewChapterPage]
 })
-export class ViewMessagePageModule {}
+export class ViewchapterPageModule {}
