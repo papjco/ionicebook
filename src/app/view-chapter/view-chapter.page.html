@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button [text]="getBackButtonText()" defaultHref="/toc"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" *ngIf="message">
+  <ion-item>
+    <ion-label class="ion-text-wrap">
+      <h2>
+        {{ message.fromName }}
+      </h2>
+    </ion-label>
+  </ion-item>
+
+  <div class="ion-padding">
+    <h1>{{ message.subject }}</h1>
+    <p [innerHTML]="message.text"></p>
+    <img src="http://lorempixel.com/400/200/"/>
+    <p>Page: {{ message.id }}</p>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button [disabled]="!shouldNavigateBack()"> 
+        <a href="/message/{{message.id - 1}}">Previous Chapter</a>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!shouldNavigateFwd()">
+        <a href="/message/{{message.id + 1}}">Next Chapter</a>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
